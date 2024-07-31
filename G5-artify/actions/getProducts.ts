@@ -44,17 +44,6 @@ export default async function getProducts(params: IProductParams) {
           },
         ],
       },
-      // Include related reviews for each product
-      include: {
-        reviews: {
-          include: {
-            user: true,
-          },
-          orderBy: {
-            createDate: "desc",
-          },
-        },
-      },
     });
 
     // Return the retrieved products

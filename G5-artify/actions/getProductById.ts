@@ -15,16 +15,6 @@ export default async function getProductById(params: IParams){
         const product = await prisma.product.findUnique({
             where:{
                 id: productId // Searching for the product by its ID
-            }, 
-            include:{
-                reviews:{ // Including associated reviews with the product
-                    include: {
-                        user: true // Including associated user details with each review
-                    },
-                    orderBy:{
-                        createDate: 'desc' // Ordering the reviews by create date in descending order
-                    }
-                }
             }
         })
         // If the product is not found, return null

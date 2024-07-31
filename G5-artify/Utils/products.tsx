@@ -17,7 +17,6 @@ export const products = [
           image: "https://firebasestorage.googleapis.com/v0/b/frame-of-fame.appspot.com/o/August%2015.jpg?alt=media&token=28e09c89-2144-49a1-ba62-e3e0773a6479",
         },
       ],
-      reviews: [],
     },
     {
       id: "64a4ebe300900d44bb50628a",
