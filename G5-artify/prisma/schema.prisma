@@ -39,7 +39,7 @@ model User {
 
   accounts      Account[]
   orders        Order[]
-  reviews       Review[]
+
 }
 
 model Product{
