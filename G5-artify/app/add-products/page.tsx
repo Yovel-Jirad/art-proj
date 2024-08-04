@@ -2,10 +2,10 @@ export const revalidate=0;
 
 // Import necessary dependencies
 import Container from "@/app/components/Container";
-import FormWrap from "@/app/components/FormWrap";
+import FormWrapper from "@/app/components/FormWrapper";
 import AddProductForm from "./AddProductForm";
 import getCurrentUser from "@/actions/getCurrentUser";
-import NullData from "@/app/components/NullData";
+import NullDataError from "@/app/components/NullDataError";
 
 // Define AddProducts component
 
@@ -14,17 +14,17 @@ const AddProducts = async () => {
   const currentUser = await getCurrentUser();
   
   if(!currentUser || currentUser.role!='ADMIN'){
-    return <NullData title='Oops! Access denied'/>;
+    return <NullDataError title='Oops! Access denied'/>;
   }
 
   // Render AddProducts component
   return (
     <div className="p-8">
       <Container>
-        <FormWrap>
+        <FormWrapper>
           {/* Render AddProductForm component */}
-          <AddProductForm />
-        </FormWrap>
+          <AddProductForm user_name={currentUser.name} />
+        </FormWrapper>
       </Container>
     </div>
   );

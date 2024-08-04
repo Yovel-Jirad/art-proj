@@ -21,7 +21,7 @@ const CartCount = () => {
             <span className="absolute
             top-[-10px] 
             right-[-10px]
-            bg-purple-300
+            bg-cyan-600
             text-black
             w-6
             h-6

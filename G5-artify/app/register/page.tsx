@@ -2,7 +2,7 @@ export const revalidate=0;
 
 import getCurrentUser from "@/actions/getCurrentUser";
 import Container from "../components/Container";
-import FormWrap from "../components/FormWrap";
+import FormWrapper from "../components/FormWrapper";
 import RegisterFrom from "./RegisterFrom";
 
 
@@ -13,10 +13,10 @@ const Register = async () => {
   // Render the registration form component with the fetched current user data
   return ( 
   <Container>
-    <FormWrap>
+    <FormWrapper>
         <RegisterFrom currentUser={currentUser}/> {/* Passed currentUser as props to RegisterForm component */}
 
-    </FormWrap>
+    </FormWrapper>
   </Container>
   );
 }

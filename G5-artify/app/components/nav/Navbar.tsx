@@ -1,17 +1,17 @@
 import Link from "next/link";
-import Container from "../Container";
-import logo from "./public/logo.png";
 import CartCount from "./CartCount";
 import UserMenu from "./UserMenu";
 import getCurrentUser from "@/actions/getCurrentUser";
-import Categories from "./Categories";
 import Image from 'next/image';
+import logo from "./public/logo.png";
 
 // Navbar.tsx
 import dynamic from 'next/dynamic';
+import NavigationItems from "./NavigationItems";
+import Container from "../Container";
 
 // Dynamically import the ThemeBtn component with ssr: false
-const ThemeBtn = dynamic(() => import('../ThemeBtn'), {
+const ThemeBtn = dynamic(() => import('../DarkLightButton'), {
   ssr: false,
 });
 
@@ -28,8 +28,8 @@ const Navbar = async () => {
           <div className="flex items-center gap-4">
             {/* Navigation Links */}
             <Link href="/" className="flex items-center gap-2">
-              <Image src={logo.src} alt="Home" className="h-8" width={32} height={32} />
-              <span className="ml-2">Home-page</span>
+            <Image src={logo.src} alt="Home" className="h-8" width={32} height={32} />
+            <span className="ml-2">Home-page</span>
             </Link>
 
           </div>
@@ -48,7 +48,7 @@ const Navbar = async () => {
           </div>
         </div>
       </Container>
-      <Categories/> 
+      <NavigationItems currentUser={currentUser}/> 
     </div>
  
   );

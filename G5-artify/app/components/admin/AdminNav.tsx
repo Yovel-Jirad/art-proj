@@ -21,18 +21,11 @@ const AdminNav = ()=> {
         <Link href='/admin'>
           <AdminNavItem label="Summary" icon={MdDashboard} selected={pathname == "/admin" }/>
         </Link>
-        {/* Link to '/admin/add-products' page with AdminNavItem component */}
-        <Link href='/admin/add-products'>
-          <AdminNavItem label="Add Products" icon={MdLibraryAdd} selected={pathname == "/admin/add-products" }/>
-        </Link>
         {/* Link to '/admin/manage-products' page with AdminNavItem component */}
         <Link href='/admin/manage-products'>
           <AdminNavItem label="Manage Products" icon={MdDns} selected={pathname == "/admin/manage-products" }/>
         </Link>
-        {/* Link to '/admin/manage-orders' page with AdminNavItem component */}
-        <Link href='/admin/manage-orders'>
-          <AdminNavItem label="Manage Orders" icon={MdFormatListBulleted} selected={pathname == "/admin/manage-orders" }/>
-        </Link>
+        
       </div>
     </Container>
    </div>

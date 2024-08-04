@@ -34,7 +34,6 @@ const ManageProductsClient: React.FC<ManageProductsClientProps> = ({ products })
         id: product.id,
         name: product.name,
         price: formatPrices(product.price),
-        category: product.category,
         artistName: product.Artist_Name,
         inStock: product.inStock,
         image: product.images,
@@ -51,12 +50,10 @@ const ManageProductsClient: React.FC<ManageProductsClientProps> = ({ products })
       headerName: "Price(USD)",
       width: 100,
       renderCell: (params) => {
-        return <div className="font-bold text-violet-500">{params.row.price}</div>;
+        return <div className="font-bold text-cyan-500">{params.row.price}</div>;
       },
       cellClassName: "text-white",
     },
-    { field: "category", headerName: "Category", width: 100, cellClassName: "text-white" },
-    { field: "artistName", headerName: "Artist Name", width: 100, cellClassName: "text-white" },
     {
       field: "inStock",
       headerName: "inStock",
@@ -94,12 +91,12 @@ const ManageProductsClient: React.FC<ManageProductsClientProps> = ({ products })
                 handleDelete(params.row.id, params.row.images);
               }}
             />
-            <ActionBtn
-              icon={MdRemoveRedEye}
-              onClick={() => {
-                router.push(`product/${params.row.id}`);
-              }}
-            />
+<ActionBtn
+  icon={MdRemoveRedEye}
+  onClick={() => {
+    router.push(`./product/${params.row.id}`); // Note the leading slash
+  }}
+/>
           </div>
         );
       },

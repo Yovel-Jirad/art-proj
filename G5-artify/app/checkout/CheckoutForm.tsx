@@ -7,9 +7,11 @@ import { AddressElement, PaymentElement, useElements, useStripe } from "@stripe/
 import { redirect } from "next/dist/server/api-utils";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import Heading from "../components/Heading";
 import { layouts } from "chart.js";
+import Heading from "../components/Heading";
 import Button from "../components/Button";
+
+
 
 // Define props for CheckoutForm component
 interface CheckoutFormProps{
@@ -20,7 +22,7 @@ interface CheckoutFormProps{
 // Define the CheckoutForm functional component
 const CheckoutForm: React.FC<CheckoutFormProps> = ({clientSecret,handleSetPaymentSuccess}) => {
     // Destructuring variables and functions from useCart hook
-    const {cartTotalAmount,handleClearCart, handleSetPaymentIntent,handleDownloadAllImages} = useCart();
+    const {cartTotalAmount,handleClearCart, handleSetPaymentIntent} = useCart();
     const stripe = useStripe(); // Stripe instance
     const elements = useElements(); // Stripe elements
     const [isLoading, setisLoading]=useState(false); // State to track loading state
@@ -53,7 +55,7 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({clientSecret,handleSetPaymen
             if(!result.error){
                 // Payment success
                 toast.success('Checkout Success');
-                handleDownloadAllImages();
+
                 handleClearCart();
                 handleSetPaymentSuccess(true); // Set payment success
                 handleSetPaymentIntent(null); // Reset payment intent

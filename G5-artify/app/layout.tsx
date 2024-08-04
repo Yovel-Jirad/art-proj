@@ -8,7 +8,7 @@ import Navbar from './components/nav/Navbar';
 import Footer from './components/footer/Footer';
 import CartProvider from '@/providers/CartProvider';
 import { Toaster } from 'react-hot-toast';
-import ThemeProvider from './components/ThemeProvider';
+import DarkLightProvider from './components/DarkLightProvider';
 
 // Define metadata for the application
 export const metadata: Metadata = {
@@ -26,7 +26,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         {/* Wrap the <body> element with the 'use client' directive */}
-        <ThemeProvider>
+        <DarkLightProvider>
           <Toaster toastOptions={{ style: { background: 'rgb(51 65 85)', color: '#fff' } }} />
           <CartProvider>
             <div className="flex flex-col min-h-screen">
@@ -35,7 +35,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <Footer />
             </div>
           </CartProvider>
-        </ThemeProvider>
+        </DarkLightProvider>
       </body>
     </html>
   );

@@ -18,21 +18,16 @@ const ActionBtn: React.FC<ActionBtnProps> = ({
       onClick={onClick}
       disabled={disabled}
       className={`
-        flex
-        items-center
-        justify-center
-        rounded
-        cursor-pointer
-        w-[40px]
-        h-[30px]
-        text-slate-700
-        border
-        border-slate-400
-        ${disabled && "opacity-50 cursor-not-allowed"}
-    `}
+        flex items-center justify-center
+        w-[40px] h-[40px] 
+        rounded-full
+        transition-all duration-300 ease-in-out
+        ${disabled ? "opacity-50 cursor-not-allowed" : "hover:opacity-90"}
+        bg-cyan-600 text-white
+      `}
     >
-      {/* Render the Icon component with size and color */}
-      <Icon size={18} color={"white"}/>
+      {/* Render the Icon component with size */}
+      <Icon size={20} />
     </button>
   );
 };

@@ -6,9 +6,11 @@ import { truncateText } from "@/Utils/truncateText";
 import Image from "next/image";
 import { useRouter } from 'next/navigation'; // Correct import
 
+
 // Define the props interface for the ProductsCard component
 interface productsCardProps {
     data: any; // Data object containing product information
+    //if data includes rating field, to delete it 
 }
 
 // ProductsCard component definition
@@ -22,8 +24,7 @@ const ProductsCard: React.FC<productsCardProps> = ({ data }) => {
             col-span-1 
             cursor-pointer 
             border-slate-200 
-            bg-pink-500  
-            bg-opacity-60
+            bg-white  
             text-black
             rounded-sm 
             p-2 
@@ -61,6 +62,7 @@ const ProductsCard: React.FC<productsCardProps> = ({ data }) => {
                     {truncateText(data.name)}
                 </div>
                 {/* Artist name */}
+                {/* to add here a link to artist exhebition */}
                 <div className="mt-4">{truncateText(data.Artist_Name)}</div>
                 {/* Product price */}
                 <div className="font-semibold">{formatPrices(data.price)}</div>

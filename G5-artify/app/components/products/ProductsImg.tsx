@@ -1,4 +1,7 @@
 'use client';
+
+// component for present product image 
+
 // Import necessary dependencies and components
 import { CartProductType } from "@/app/product/[productId]/ProductDetails";
 import Image from "next/image";

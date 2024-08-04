@@ -13,7 +13,7 @@ import getGraphData from "@/actions/getGraphData";
 // Define the Admin functional component
 const Admin = async () => {
   // Retrieve products, orders, users, and graph data
-  const products = await getProducts({category: null})
+  const products = await getProducts()
   const orders = await getOrders()
   const users = await getUsers()
   const graphData = await getGraphData()

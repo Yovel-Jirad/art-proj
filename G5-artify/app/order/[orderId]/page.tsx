@@ -4,7 +4,7 @@ import React from 'react';
 import Container from "@/app/components/Container";
 import OrderDetails from "./OrderDetails";
 import getOrderById from '@/actions/getOrderById';
-import NullData from '@/app/components/NullData';
+import NullDataError from '@/app/components/NullDataError';
 
 
 interface IParams {
@@ -17,7 +17,7 @@ const Order = async ({ params }: { params: IParams }) => {
 
     // If no order is found, display a message
     if (!order) {
-        return <NullData title='No order'></NullData>
+        return <NullDataError title='No order'></NullDataError>
     }
     return (
         <div className="p-16"> {/* Adjusted padding */}

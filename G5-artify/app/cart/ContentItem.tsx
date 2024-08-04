@@ -1,10 +1,11 @@
 // Importing necessary modules and components
 import { formatPrices } from "@/Utils/formatPrices";
-import { CartProductType } from "../product/[productId]/ProductDetails";
 import Link from "next/link";
 import { truncateText } from "@/Utils/truncateText";
 import Image from "next/image";
 import { useCart } from "@/hooks/useCart";
+import { CartProductType } from "../product/[productId]/ProductDetails";
+
 
 // Define props for ContentItem component
 interface ContentItemProps {
@@ -30,7 +31,7 @@ const ContentItem: React.FC<ContentItemProps> = ({ item }) => {
       md:text-sm
       gap-4
       border-t-[1px]
-      border-violet-500
+      border-cyan-600
       py-4
       items-center
     ">
@@ -64,7 +65,7 @@ const ContentItem: React.FC<ContentItemProps> = ({ item }) => {
               Remove
            </button>*/}
             <button
-              className="text-violet-500 underline"
+              className="text-cyan-600 underline"
               onClick={handleRemoveClick}
               onKeyDown={(e) => {
                 if (e.key === "Enter" || e.key === "Space") {
