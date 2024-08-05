@@ -80,10 +80,10 @@ const RegisterFrom: React.FC<RegisterFromProps> = ({currentUser}) => {
     return (
         <>
             {/* Heading component */}
-            <Heading title="Sign up for Frame of Fame"/>
+            <Heading title="Artify - Sign up"/>
             <Button
             outline
-            label="Continue with Google"
+            label="Sign up with Google"
             icon={AiOutlineGoogle}
             onClick={() => {signIn('google')}}
             ></Button>

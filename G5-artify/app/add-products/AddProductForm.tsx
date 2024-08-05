@@ -156,7 +156,11 @@ const AddProductForm = (user_name:any) => {
 
   // Function to add image to state
   const addImageToState = useCallback((value: ImageType) => {
+    
+    console.log('actually reached here blyat >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
     setImages((prev) => {
+      
+    console.log('actually reached here insideeee blyat >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
       if (!prev) {
         return [value];
       }
@@ -169,7 +173,14 @@ const AddProductForm = (user_name:any) => {
   const removeImageFromState = useCallback((value: ImageType) => {
     setImages((prev) => {
       if (prev) {
-        const filteredImages = prev.filter((item) => item.color !== value.color);
+        console.log('actually reached here >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
+
+        const filteredImages = prev.filter((item) => {
+          console.log("item  ",item)
+          return item.image !== value.image;
+        });
+        console.log("imagges: >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>", images)
+        console.log("filteredImages  ",filteredImages)
         return filteredImages;
       }
 
@@ -228,13 +239,17 @@ const AddProductForm = (user_name:any) => {
           </div>
         </div>
         <div className="gap-3">
-          {colors.map((item, index) => (
+        {colors.map((item, index) => {
+          const currentImage = images.find(img => img.color === item.color);
+          return (
             <SelectImage
               key={index}
-              item={item}
+              item={{...item, image: currentImage?.image || null}}
               handleFileChange={(file) => addImageToState({ ...item, image: file })}
+              handleRemoveImage={() => removeImageFromState({ ...item })}
             />
-          ))}
+          );
+        })}
         </div>
       </div>
       <Button

@@ -13,7 +13,7 @@ interface SelectImageProps {
 
 // Define SelectImage component
 const SelectImage: React.FC<SelectImageProps> = ({ item, handleFileChange, handleRemoveImage }) => {
-  const [preview, setPreview] = useState<string | undefined>(item?.image ? URL.createObjectURL(item.image) : undefined);
+  const [preview, setPreview] = useState<string | undefined | null>(item?.image ? URL.createObjectURL(item.image) : undefined);
 
   // Callback function for handling file drop
   const onDrop = (acceptedFiles: File[]) => {
@@ -50,7 +50,11 @@ const SelectImage: React.FC<SelectImageProps> = ({ item, handleFileChange, handl
               />
               <button
                 type="button"
-                onClick={handleRemoveImage}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleRemoveImage();
+                  setPreview(null);
+                }}
                 className="absolute top-0 right-0 p-1 bg-red-500 text-white rounded-full"
               >
                 ×

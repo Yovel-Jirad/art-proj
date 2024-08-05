@@ -74,10 +74,10 @@ const LoginForm: React.FC<LoginFormProps> = ({currentUser}) => {
     return (
         <>
             {/* Heading component */}
-            <Heading title="Sign in to Frame of Fame"/>
+            <Heading title="Sign in to Artify"/>
             <Button
             outline
-            label="Continue with Google"
+            label="Sign in with Google"
             icon={AiOutlineGoogle}
             onClick={() => {signIn('google')}}
             ></Button>
