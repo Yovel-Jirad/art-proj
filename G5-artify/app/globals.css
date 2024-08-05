@@ -12,3 +12,10 @@ body {
   color: red;
 }
 
+.container{
+  @apply max-w-[1920p]
+  mx-auto 
+  xl:px-20 
+  md:px-2
+  px-4
+}

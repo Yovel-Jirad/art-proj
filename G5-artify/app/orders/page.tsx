@@ -18,7 +18,7 @@ const Orders = async () => {
   // Fetch orders for the current user
   const orders = await getOrdersByUserId(currentUser.id);
   // If no orders are found for the current user, display a message indicating no orders
-  if (!orders) {
+  if (orders.length === 0) {
     return <NullDataError title="No Orders yet..." />;
   }
 

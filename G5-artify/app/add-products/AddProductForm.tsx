@@ -36,7 +36,8 @@ const AddProductForm = (user_name:any) => {
   const [isLoading, setIsLoading] = useState(false);
   const [images, setImages] = useState<ImageType[]>([]);
   const [isProductCreated, setIsProductCreated] = useState(false);
-
+  const{user_name: Artist_name} = user_name;
+  
   // Initialize React hook form
   const {
     register,
@@ -50,7 +51,7 @@ const AddProductForm = (user_name:any) => {
       name: "",
       description: "",
       Size: "",
-      Artist_Name: user_name,
+      Artist_Name: Artist_name,
       inStock: false,
       images: [],
       price: "",
@@ -143,9 +144,6 @@ const AddProductForm = (user_name:any) => {
         setIsLoading(false);
       });
   };
-
-  // Watch category selection
-  const category = watch("category");
 
   // Function to set custom form value
   const setCustomValue = useCallback((id: string, value: any) => {

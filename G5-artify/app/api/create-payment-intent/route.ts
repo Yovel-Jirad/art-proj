@@ -5,7 +5,7 @@ import { CartProductType } from '@/app/product/[productId]/ProductDetails';
 import getCurrentUser from '@/actions/getCurrentUser';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
-  apiVersion: '2023-10-16',
+  apiVersion: '2024-06-20',
 });
 
 const calcultateOrderAmount = (items: CartProductType[]) => {
@@ -45,7 +45,6 @@ export async function POST(request: Request) {
       const updated_intent = await stripe.paymentIntents.update(payment_intent_id, {
         amount: total,
       });
-
       const [existing_order, update_order] = await Promise.all([
         prisma.order.findFirst({
           where: { paymentIntentId: payment_intent_id },
@@ -71,6 +70,7 @@ export async function POST(request: Request) {
       currency: 'usd',
       automatic_payment_methods: { enabled: true },
     });
+
 
     orderData.paymentIntentId = paymentIntent.id;
 

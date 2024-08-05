@@ -7,26 +7,25 @@ export async function POST(request: Request) {
   // Get current user
   const currentUser = await getCurrentUser();
 
-  // If no current user or current user is not an admin, return an error response
-  if(!currentUser || currentUser.role != 'ADMIN'){
+  // If no current user, return an error response
+  if(!currentUser){
     return NextResponse.error();
   }
 
   // Parse request body
   const body = await request.json();
-  const { name, description, Size, price, Artist_Name, category, inStock, images } = body;
+  const { name, description, Size, price, Artist_Name, inStock, images } = body;
 
   // Create a new product using Prisma
   const product = await prisma.product.create({
     data: {
       name,
       description,
-      Size,
-      price: parseFloat(price),
       Artist_Name,
-      category,
-      inStock,
+      Size,
       images,
+      inStock,
+      price: parseFloat(price),
     },
   });
 

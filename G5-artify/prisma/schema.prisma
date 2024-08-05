@@ -48,7 +48,6 @@ model Product{
   description String
   Artist_Name String
   Size String
-  category String
   images Image[]
   inStock Boolean
   price Float
@@ -76,9 +75,7 @@ type CartProductType{
   description String
   Artist_Name String
   Size String
-  category String
   selectedImg Image
-  quantity Int
   price Float
 
 }

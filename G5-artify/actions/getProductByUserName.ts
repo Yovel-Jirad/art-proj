@@ -1,5 +1,5 @@
 // Importing Prisma for database operations
-import prisma from "@/libs/prismadb";
+import prisma from '../libs/prismadb'
 
 // Function to retrieve products by user name
 export default async function getProductByUserName(userName: string) {
