@@ -34,7 +34,7 @@ const OrderItem: React.FC<OrderItemProps> = ({item}) => {
         {/* Formatting and displaying product price */}
         {formatPrices(item.price)}</div>
       {/* Column 3: Total Price */}
-      <div className="justify-self-end font-semibold">${(item.price *item.quantity).toFixed(2)}</div>
+      <div className="justify-self-end font-semibold">${(item.price).toFixed(2)}</div>
     </div>
   )
 };

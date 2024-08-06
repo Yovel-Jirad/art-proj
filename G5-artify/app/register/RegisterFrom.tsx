@@ -1,10 +1,7 @@
 'use client';
 
 import { useEffect, useState } from "react";
-import Heading from "../components/Heading"; // Importing Heading component
-import Input from "../components/inputs/Input"; // Importing Input component
 import { FieldValues,SubmitHandler, useForm } from "react-hook-form"; // Importing necessary types and functions from react-hook-form
-import Button from "../components/Button"; // Importing Button component
 import Link from "next/link"; // Importing Link component from Next.js
 import { AiOutlineGoogle } from "react-icons/ai";
 import axios from "axios";
@@ -12,6 +9,9 @@ import toast from "react-hot-toast";
 import {signIn} from 'next-auth/react';
 import { useRouter } from "next/navigation";
 import { SafeUser } from "@/types";
+import Heading from "../components/Heading";
+import Button from "../components/Button";
+import Input from "../components/inputs/Input";
 
 
 interface RegisterFromProps{
@@ -47,7 +47,7 @@ const RegisterFrom: React.FC<RegisterFromProps> = ({currentUser}) => {
     const onSubmit: SubmitHandler<FieldValues> = (data) => 
     {
         setisLoading(true);
-        //will encrypt the password of the user
+
         axios.post('/api/register', data).then(() =>{
             toast.success('Account created');
 
@@ -80,7 +80,7 @@ const RegisterFrom: React.FC<RegisterFromProps> = ({currentUser}) => {
     return (
         <>
             {/* Heading component */}
-            <Heading title="Artify - sign up"/>
+            <Heading title="Artify - Sign up"/>
             <Button
             outline
             label="Sign up with Google"

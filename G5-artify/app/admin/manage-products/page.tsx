@@ -2,20 +2,21 @@ export const revalidate=0;
 
 import Container from "@/app/components/Container";
 import ManageProductsClient from "./ManageProductsClient";
-import getProducts from "@/actions/getProducts";
+import getProductByUserName from "@/actions/getProductByUserName";
 import getCurrentUser from "@/actions/getCurrentUser";
-import NullData from "@/app/components/NullData";
+import NullDataError from "@/app/components/NullDataError";
+
 
 // Define ManageProducts component
 const ManageProducts = async() => {
 
-  // Fetch products using getProducts function
-  const products = await getProducts({category: null});
 
   const currentUser = await getCurrentUser();
 
+  const products= await getProductByUserName(currentUser.name);
+
   if(!currentUser || currentUser.role!='ADMIN'){
-    return <NullData title='Oops! Access denied'/>;
+    return <NullDataError title='Oops! Access denied'/>;
   }
 
   // Render ManageProducts component

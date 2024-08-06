@@ -1,5 +1,5 @@
-// FormWrap component definition
-const FormWrap = ({ children }: { children: React.ReactNode }) => {
+// FormWrapper component definition
+const FormWrapper = ({ children }: { children: React.ReactNode }) => {
   return (
     // Outer container div for the form
     <div
@@ -21,16 +21,16 @@ const FormWrap = ({ children }: { children: React.ReactNode }) => {
         gap-6
         items-center
         shadow-xl
-        shadow-violet-300
+        shadow-cyan-600
         rounded-md
         p-4
         md:p-8"
       >
-        {/* Rendering child components inside the FormWrap */}
+        {/* Rendering child components inside the FormWrapper */}
         {children}
       </div>
     </div>
   );
 };
 
-export default FormWrap; // Exporting the FormWrap component
+export default FormWrapper; // Exporting the FormWrapper component

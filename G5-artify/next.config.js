@@ -8,6 +8,8 @@ const nextConfig = {
         'googleusercontent.com',
       ],
     },
+    basePath: '',
+    trailingSlash: false,
   };
   
   module.exports = nextConfig;

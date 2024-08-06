@@ -2,12 +2,13 @@
 import { useCart } from "@/hooks/useCart";
 import Link from "next/link";
 import { MdArrowBack } from "react-icons/md";
-import Heading from "../components/Heading";
-import Button from "../components/Button";
 import ContentItem from "./ContentItem";
 import { formatPrices } from "@/Utils/formatPrices";
 import { SafeUser } from "@/types";
 import { useRouter } from "next/navigation";
+import Heading from "../components/Heading";
+import Button from "../components/Button";
+
 
 // Defining the props interface for the CartClient component
 interface CartClientProps{
@@ -57,7 +58,7 @@ const CartClient: React.FC<CartClientProps> = ({currentUser}) => {
                 return <ContentItem key={item.id} item={item}/>;
             })}
         </div>
-        <div className="border-t-[1px] border-violet-500 py-4 flex justify-between gap-5 ">
+        <div className="border-t-[1px] border-cyan-600 py-4 flex justify-between gap-5 ">
             <div className="w-[100px]">
                 {/* Button to clear the cart */}
                 <Button label='Clear Cart' onClick={() =>
@@ -70,7 +71,7 @@ const CartClient: React.FC<CartClientProps> = ({currentUser}) => {
                     <span>{formatPrices(cartTotalAmount)}</span>
                 </div>
                 {/* Additional information */}
-                <p className="text-violet-500">
+                <p className="text-cyan-600">
                     Taxes and Shipping are calculated at checkout
                 </p>
                 {/* Button to proceed to checkout or login */}

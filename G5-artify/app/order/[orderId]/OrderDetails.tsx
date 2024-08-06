@@ -2,13 +2,14 @@
 
 // Importing necessary modules and components
 import { formatPrices } from "@/Utils/formatPrices";
-import Heading from "@/app/components/Heading";
-import Status from "@/app/components/Status";
 import { Order } from "@prisma/client"
 import moment from "moment";
 import { useRouter } from "next/navigation";
 import { MdAccessTimeFilled, MdDeliveryDining, MdDone } from "react-icons/md";
 import OrderItem from "./OrderItem";
+import Heading from "@/app/components/Heading";
+import Status from "@/app/components/Status";
+
 
 // Define the OrderDetails functional component
 interface OrderDetailsProps{

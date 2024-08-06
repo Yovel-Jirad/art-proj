@@ -10,12 +10,7 @@ interface ContainerProps{
 const Container: React.FC<ContainerProps>= ({children}) => {
   return (
     // Render the container with max width, horizontal margin auto, and padding
-    <div className="
-    max-w-[1920p]
-    mx-auto 
-    xl:px-20 
-    md:px-2
-    px-4">
+    <div className="container">
       {/* Render the children elements */}
         {children}
     </div>

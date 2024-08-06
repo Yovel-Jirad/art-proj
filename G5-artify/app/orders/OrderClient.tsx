@@ -90,42 +90,7 @@ const OrdersClient: React.FC<OrdersClientProps> = ({ orders }) => {
                     </div>
                 );
             },
-        },
-        // Define column for delivery status with custom rendering
-        {
-            field: "deliveryStatus",
-            headerName: "Delivery Status",
-            width: 130,
-            renderCell: (params) => {
-                return(
-                    <div>
-                        {/* Render delivery status based on order delivery status */}
-                        {params.row.deliveryStatus === "pending" ? (
-                            <Status
-                                text="pending"
-                                icon={MdAccessTimeFilled}
-                                bg="bg-slate-200"
-                                color="text-slate-700"
-                            />
-                        ) : params.row.deliveryStatus === "dispatched" ? (
-                            <Status
-                                text="dispatched"
-                                icon={MdDeliveryDining}
-                                bg="bg-purple-200"
-                                color="text-purple-700"
-                            />
-                        ) : params.row.deliveryStatus === "delivered" ? (
-                            <Status
-                                text="delivered"
-                                icon={MdDone}
-                                bg="bg-green-200"
-                                color="text-green-700"
-                            />
-                        ) : null}
-                    </div>
-                );
-            },
-        },
+        },           
         {
             field: "date",
             headerName: "Date",

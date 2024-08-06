@@ -6,7 +6,6 @@ import { AiFillCaretDown } from "react-icons/ai";
 
 import MenuItem from "./MenuItem";
 import { signOut } from "next-auth/react";
-import BackDrop from "./BackDrop";
 import { SafeUser } from "@/types";
 import Avatar from "../Avatar";
 
@@ -98,8 +97,6 @@ const UserMenu: React.FC<UserMenuProps>=({currentUser}) => {
                 </div>
             )}
         </div>
-        {/* Backdrop to close the menu when clicked outside*/} 
-        {isOpen ? <BackDrop onClick={toggleOpen} /> : null}
     </>
   );
 };

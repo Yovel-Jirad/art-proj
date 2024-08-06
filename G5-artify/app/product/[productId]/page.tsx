@@ -5,7 +5,7 @@ import Container from "@/app/components/Container";
 import ProductDetails from "./ProductDetails";
 import { products } from "@/Utils/products";
 import getProductById from '@/actions/getProductById';
-import NullData from '@/app/components/NullData';
+import NullDataError from '@/app/components/NullDataError';
 
 interface IParams {
     productId?: string;
@@ -17,7 +17,7 @@ const Product = async ({ params }: { params: IParams }) => {
     const { productId } = params; // Extract productId from params
 
     if(!productId){
-        return <NullData title='Oops! Product with the given id does not exist'/>
+        return <NullDataError title='Oops! Product with the given id does not exist'/>
     }
 
     const product = await getProductById({ productId }); // Pass productId to getProductById

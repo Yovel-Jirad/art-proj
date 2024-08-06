@@ -3,13 +3,14 @@ import { FiMoon, FiSun } from 'react-icons/fi';
 import { useTheme } from 'next-themes';
 
 // Functional component to render a theme toggle button
-function ThemeBtn() {
+function DarkLightButthon() {
   // Destructure theme and setTheme from useTheme hook
   const { theme, setTheme } = useTheme();
 
    // Function to toggle between light and dark themes
   const toggleTheme = () => {
     setTheme(theme === 'dark' ? 'light' : 'dark');
+    console.log(theme)
   };
 
   // Check if the current theme is dark mode
@@ -34,4 +35,4 @@ function ThemeBtn() {
   );
 }
 
-export default ThemeBtn;
+export default DarkLightButthon;

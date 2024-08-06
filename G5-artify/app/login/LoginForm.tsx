@@ -1,10 +1,7 @@
 'use client'
 
 import React, { useEffect, useState } from "react";
-import Heading from "../components/Heading"; // Importing Heading component
-import Input from "../components/inputs/Input"; // Importing Input component
 import { FieldValues,SubmitHandler, useForm } from "react-hook-form"; // Importing necessary types and functions from react-hook-form
-import Button from "../components/Button"; // Importing Button component
 import Link from "next/link"; // Importing Link component from Next.js
 import { AiOutlineGoogle } from "react-icons/ai";
 import { signIn } from "next-auth/react";
@@ -12,6 +9,9 @@ import { callback } from "chart.js/dist/helpers/helpers.core";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 import { SafeUser } from "@/types";
+import Heading from "../components/Heading";
+import Button from "../components/Button";
+import Input from "../components/inputs/Input";
 
 interface LoginFormProps{
     currentUser: SafeUser | null
@@ -74,7 +74,7 @@ const LoginForm: React.FC<LoginFormProps> = ({currentUser}) => {
     return (
         <>
             {/* Heading component */}
-            <Heading title="Artify - Sign in"/>
+            <Heading title="Sign in to Artify"/>
             <Button
             outline
             label="Sign in with Google"
