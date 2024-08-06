@@ -24,7 +24,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         {/* Add any other meta tags, stylesheets, or scripts here */}
       </head>
-      <body className="bg-light-primaryBG dark:bg-dark-primaryBG text-light-text dark:text-dark-text">
+      <body className="layout-body">
         {/* Wrap the <body> element with the 'use client' directive */}
         <DarkLightProvider>
           <Toaster toastOptions={{ style: { background: 'rgb(51 65 85)', color: '#fff' } }} />

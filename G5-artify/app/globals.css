@@ -8,12 +8,159 @@ body {
   @apply transition-colors duration-300;
 }
 
-.red-heart {
-  color: red;
+.layout-body{
+  @apply 
+  bg-light-primaryBG
+  dark:bg-dark-primaryBG 
+  text-light-text 
+  dark:text-dark-text
+}
+
+.nav-bar{
+  @apply
+  top-0 
+  w-full 
+  z-30 
+  shadow-sm
+}
+
+.nav-bar-inner{
+  @apply
+  text-lg 
+  flex 
+  flex-col 
+  sm:flex-row 
+  justify-between 
+  items-center 
+  py-4 
+  relative
+}
+
+.nav-bar-logo{
+  @apply
+  flex 
+  items-center 
+  gap-4
+}
+
+.nav-bar-menues{
+  @apply
+  flex 
+  items-center 
+  gap-4 
+  mt-4 
+  sm:mt-0
+}
+
+.nav-bar-user-menu{
+  @apply
+  flex 
+  items-center 
+  gap-2
+}
+
+.user-menu{
+  @apply
+  p-2
+  border-[1px]
+  border-slate-400
+  flex
+  flex-row
+  items-center
+  gap-1
+  rounded-full
+  cursor-pointer
+  hover:shadow-md
+  hover:shadow-white
+  transition
+}
+
+.opened-user-menu{
+  @apply
+  absolute
+  rounded-md
+  shadow-md
+  w-[170px]
+  bg-white
+  overflow-hidden
+  right-0
+  top-12
+  text-sm
+  flex
+  flex-col
+  cursor-pointer
+}
+
+.user-menu-item{
+  @apply
+  px-4 
+  py-3 
+  hover:bg-neutral-100 
+  transition 
+  text-black
+}
+
+.cart-count-icon{
+  @apply
+  absolute
+  top-[-10px] 
+  right-[-10px]
+  bg-cyan-600
+  text-black
+  w-6
+  h-6
+  rounded-full 
+  flex 
+  justify-center 
+  items-center
+}
+
+.theme-button{
+  @apply
+  w-11 
+  h-6 
+  bg-gray-200 
+  rounded-full 
+  dark:bg-gray-700
+}
+
+.theme-button-moon{
+  @apply
+  absolute 
+  left-0 
+  top-0 
+  w-6 
+  h-6 
+  flex 
+  items-center 
+  justify-center 
+  rounded-full 
+  transition-transform 
+  duration-300 
+  transform 
+  peer-checked:translate-x-full
+}
+
+.theme-button-sun{
+  @apply
+  absolute 
+  right-0 
+  top-0 
+  w-6 
+  h-6 
+  flex 
+  items-center 
+  justify-center 
+  rounded-full 
+  transition-transform 
+  duration-300 
+  transform 
+  peer-checked:-translate-x-full
 }
 
 .container{
-  @apply max-w-[1920p]
+  @apply 
+  max-w-[1920p]
   mx-auto 
   xl:px-20 
   md:px-2
