@@ -158,6 +158,45 @@ body {
   peer-checked:-translate-x-full
 }
 
+.footer{
+  @apply
+  flex 
+  flex-col 
+  md:flex-row 
+  justify-between 
+  pt-16 
+  pb-8 
+  relative 
+  z-10
+}
+
+.footer-about-us{
+  @apply
+  w-full 
+  md:w-1/3 
+  mb-6 
+  md:mb-0
+}
+
+.footer-about-us-title{
+  @apply
+  text-base 
+  font-bold 
+  mb-2
+}
+
+.footer-about-us-text{
+  @apply
+  w-full 
+  mb-2 
+  md:mb-0
+}
+
+.footer-creators{
+  @apply
+  text-base 
+  font-bold 
+}
 .container{
   @apply 
   max-w-[1920p]
