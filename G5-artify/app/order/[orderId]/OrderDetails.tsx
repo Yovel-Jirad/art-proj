@@ -81,14 +81,6 @@ const OrderDetails: React.FC<OrderDetailsProps> = ({order}) => {
             {/* Date */}
             <div> Date: {moment (order.createDate).fromNow()}</div>
             <div>
-                {/* Products ordered */}
-                <h2 className="font-semibold mt-4 mb-2">Products ordered</h2>
-                {/* Table headers */}
-                <div className=" grid grid-cols-4 text-xs gap-4 pb-2 items-center">
-                    <div className=" col-span-2 justify-self-start">PRODUCT</div>
-                    <div className=" justify-self-center">PRICE</div>
-                    <div className=" justify-self-end">TOTAL</div>
-                </div>
                 {/* Mapping through order products and rendering OrderItem component */}
                 {order.products && order.products.map(item =>{
                     return <OrderItem key={item.id} item={item}></OrderItem>
