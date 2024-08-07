@@ -13,12 +13,11 @@ const ManageProducts = async() => {
 
   const currentUser = await getCurrentUser();
 
-  const products= await getProductByUserName(currentUser.name);
-
-  if(!currentUser || currentUser.role!='ADMIN'){
+  if(!currentUser){
     return <NullDataError title='Oops! Access denied'/>;
   }
-
+  const products= await getProductByUserName(currentUser.name || '');
+  
   // Render ManageProducts component
   return (
   <div className="pt-8">
