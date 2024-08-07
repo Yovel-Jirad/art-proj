@@ -25,8 +25,12 @@ const DownloadImage: React.FC<DownloadImageProps> = ({ item }) => {
 
             const storage = getStorage(firebaseApp);
 
+            
             // Open the URL in a new tab
             window.open(item.selectedImg.image, '_blank');
+
+            
+            setIsLoading(false);
               } catch (error) {
                 console.error("Failed to get download URL", error);
                 toast("Download Failed");

@@ -35,7 +35,6 @@ const ManageProductsClient: React.FC<ManageProductsClientProps> = ({ products })
         name: product.name,
         price: formatPrices(product.price),
         artistName: product.Artist_Name,
-        inStock: product.inStock,
         image: product.images,
       };
     });
@@ -43,60 +42,37 @@ const ManageProductsClient: React.FC<ManageProductsClientProps> = ({ products })
 
   // Define columns for DataGrid
   const columns: GridColDef[] = [
-    { field: "id", headerName: "ID", width: 220, cellClassName: "text-white" },
-    { field: "name", headerName: "Name", width: 220, cellClassName: "text-white" },
+    { field: "id", headerName: "ID", flex: 0.3, minWidth: 200 },
+    { field: "name", headerName: "Name",  flex: 0.2, minWidth: 150 },
     {
       field: "price",
       headerName: "Price(USD)",
-      width: 100,
+      flex: 0.2,
+      minWidth: 120,
       renderCell: (params) => {
-        return <div className="font-bold text-cyan-500">{params.row.price}</div>;
+        return <div className="font-bold text-white">{params.row.price}</div>;
       },
-      cellClassName: "text-white",
-    },
-    {
-      field: "inStock",
-      headerName: "inStock",
-      width: 120,
-      renderCell: (params) => {
-        return (
-          <div>
-            {params.row.inStock === true ? (
-              <Status text="in stock" icon={MdDone} bg="bg-teal-200" color="text-black" />
-            ) : (
-              <Status text="out of stock" icon={MdClose} bg="bg-rose-200" color="text-black" />
-            )}
-          </div>
-        );
-      },
-      cellClassName: "text-white",
     },
     {
       field: "action",
       headerName: "Actions",
-      width: 200,
-      cellClassName: "text-white",
+      flex: 0.3,
+      minWidth: 150,
       renderCell: (params) => {
         return (
-          <div className="flex justify-between gap-4 w-full">
-            <ActionBtn
-              icon={MdCached}
-              onClick={() => {
-                handleToggleStock(params.row.id, params.row.inStock);
-              }}
-            />
+          <div className="flex justify-between gap-4">
             <ActionBtn
               icon={MdDelete}
               onClick={() => {
                 handleDelete(params.row.id, params.row.images);
               }}
             />
-<ActionBtn
-  icon={MdRemoveRedEye}
-  onClick={() => {
-    router.push(`./product/${params.row.id}`); // Note the leading slash
-  }}
-/>
+            <ActionBtn
+              icon={MdRemoveRedEye}
+              onClick={() => {
+                router.push(`./product/${params.row.id}`); // Note the leading slash
+              }}
+            />
           </div>
         );
       },
@@ -142,8 +118,7 @@ const ManageProductsClient: React.FC<ManageProductsClientProps> = ({ products })
     await handleImageDelete(); // Delete images associated with the product
 
     // Delete the product from the database
-    axios
-      .delete(`/api/product/${id}`)
+    axios.delete(`/api/product/${id}`)
       .then((res) => {
         toast.success("Product deleted");
         router.refresh();
@@ -182,26 +157,27 @@ const ManageProductsClient: React.FC<ManageProductsClientProps> = ({ products })
 
   // Render the component
   return (
-    <div className="max-w-[1150px] m-auto text-xl bg-black p-4">
+    
+    <div className="max-w-[1150px] m-auto text-xl bg-gray-500 p-4">
       <div className="mb-4 mt-8 text-white">
         <Heading title="Manage Products" center />
       </div>
-      <div style={{ height: 600, width: "100%" }}>
+      <div className="w-full">
         <DataGrid
           rows={rows}
           columns={columns}
-          style={{ color: "white" }}
+          style={{ width: '100%' }}
+          autoHeight
+          disableColumnMenu
+          disableColumnSelector
           initialState={{
             pagination: {
               paginationModel: { page: 0, pageSize: 9 },
             },
           }}
           pageSizeOptions={[9, 20]}
-          checkboxSelection
           disableRowSelectionOnClick
-          components={{
-            BaseCheckbox: CustomWhiteCheckbox,
-          }}
+
           sx={{
             // Apply white color to all row text
             "& .MuiDataGrid-row": {

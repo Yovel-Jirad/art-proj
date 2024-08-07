@@ -44,57 +44,25 @@ const OrdersClient: React.FC<OrdersClientProps> = ({ orders }) => {
     if (orders) {
         rows = orders.map((order) => ({
             id: order.id,
-            customer: order.user.name,
-            amount: formatPrices(order.amount / 100),
-            paymentStatus: order.status,
+            price: formatPrices(order.amount / 100),
             date: moment(order.createDate).fromNow(),
-            deliveryStatus: order.deliveryStatus,
         }));
     }
 
     // Define columns for the DataGrid
     const columns: GridColDef[] = [
-        { field: "id", headerName: "ID", width: 220},
-        { field: "customer", headerName: "Customer Name", width: 130},
-        // Define column for amount with custom rendering
+        { field: "id", headerName: "ID", flex: 0.4},
+        // Define column for price with custom rendering
         {
-            field: "amount",
-            headerName: "Amount (USD)",
-            width: 130,
-            renderCell: (params) => <div className="font-bold text-slate-800">{params.row.amount}</div>,
-        },
-         // Define column for payment status with custom rendering
-        {
-            field: "paymentStatus",
-            headerName: "Payment Status",
-            width: 130,
-            renderCell: (params) => {
-                return(
-                    <div>
-                        {/* Render payment status based on order status */}
-                        {params.row.paymentStatus === "pending" ? (
-                            <Status
-                                text="pending"
-                                icon={MdAccessTimeFilled}
-                                bg="bg-slate-200"
-                                color="text-slate-700"
-                            />
-                        ) : params.row.paymentStatus === "complete" ? (
-                            <Status
-                                text="complete"
-                                icon={MdDone}
-                                bg="bg-green-200"
-                                color="text-green-700"
-                            />
-                        ) : null}
-                    </div>
-                );
-            },
-        },           
+            field: "price",
+            headerName: "Price (USD)",
+            flex: 0.2,
+            renderCell: (params) => <div className="font-bold">{params.row.price}</div>,
+        },      
         {
             field: "date",
             headerName: "Date",
-            width: 130,
+            flex: 0.2,
         },
         // Define column for actions with custom rendering
         {
@@ -113,55 +81,37 @@ const OrdersClient: React.FC<OrdersClientProps> = ({ orders }) => {
         },
     ];
 
-    // Custom checkbox component for the DataGrid
-    const CustomWhiteCheckbox = (props: JSX.IntrinsicAttributes & CheckboxProps) => (
-        <Checkbox
-            {...props}
-            sx={{
-                color: 'black', // Checkbox color when not checked
-                '&.Mui-checked': {
-                    color: 'black', // Checkbox color when checked
-                },
-            }}
-        />
-    );
-
     return (
-        <div className={`max-w-[1150px] m-auto text-xl `}>
+        <div className={`max-w-[1150px] m-auto text-xl`}>
             <div className="mb-4 mt-8">
-                <Heading title="Manage Orders" center />
+                <Heading title="Your Purchases" center />
             </div>
-            <div style={{ height: 600, width: "100%", backgroundColor: darkMode ? '#222' : '#a488bf' }}>
+            <div className="bg-gray-500" style={{ height: 600, width: "100%" }}>
                 <DataGrid
                 rows={rows}
                 columns={columns}
                 initialState={{
-                pagination: {
-                    paginationModel: { page: 0, pageSize: 9 },
-                },
+                    pagination: {
+                        paginationModel: { page: 0, pageSize: 9 },
+                    },
                 }}
                 pageSizeOptions={[9, 20]}
-                checkboxSelection
                 disableRowSelectionOnClick
-                components={{
-                    BaseCheckbox: CustomWhiteCheckbox,
-                }}
                 sx={{
                     '& .MuiDataGrid-row': {
-                        color:  'black', // Set row text color based on mode
+                        color: 'white', 
                     },
                     '& .MuiDataGrid-columnHeader': {
-                        color: darkMode ? 'white' : 'black', // Set header text color based on mode
-                        backgroundColor: darkMode ? '#222' : '#a488bf', // Adjust header background color
+                        color: 'white', 
                     },
                     '& .MuiDataGrid-footerContainer, & .MuiTablePagination-toolbar': {
-                        color:  'black',
+                        color: 'white', 
                     },
                     '& .Mui-selected': {
-                        color:'black',
+                        color: 'white', 
                     },
                     '& .MuiTablePagination-select, & .MuiTablePagination-selectLabel': {
-                        color:'black',
+                        color: 'white', 
                     },
                 }}
                 />
