@@ -8,12 +8,306 @@ body {
   @apply transition-colors duration-300;
 }
 
-.red-heart {
-  color: red;
+.layout-body{
+  @apply 
+  bg-light-primaryBG
+  dark:bg-dark-primaryBG 
+  text-light-text 
+  dark:text-dark-text
+}
+
+.nav-bar{
+  @apply
+  top-0 
+  w-full 
+  z-30 
+  shadow-sm
+}
+
+.nav-bar-inner{
+  @apply
+  text-lg 
+  flex 
+  flex-col 
+  sm:flex-row 
+  justify-between 
+  items-center 
+  py-4 
+  relative
+}
+
+.nav-bar-logo{
+  @apply
+  flex 
+  items-center 
+  gap-4
+}
+
+.nav-bar-menues{
+  @apply
+  flex 
+  items-center 
+  gap-4 
+  mt-4 
+  sm:mt-0
+}
+
+.nav-bar-user-menu{
+  @apply
+  flex 
+  items-center 
+  gap-2
+}
+
+.user-menu{
+  @apply
+  p-2
+  border-[1px]
+  border-slate-400
+  flex
+  flex-row
+  items-center
+  gap-1
+  rounded-full
+  cursor-pointer
+  hover:shadow-md
+  hover:shadow-white
+  transition
+}
+
+.opened-user-menu{
+  @apply
+  absolute
+  rounded-md
+  shadow-md
+  w-[170px]
+  bg-white
+  overflow-hidden
+  right-0
+  top-12
+  text-sm
+  flex
+  flex-col
+  cursor-pointer
+}
+
+.user-menu-item{
+  @apply
+  px-4 
+  py-3 
+  hover:bg-neutral-100 
+  transition 
+  text-black
+}
+
+.cart-count-icon{
+  @apply
+  absolute
+  top-[-10px] 
+  right-[-10px]
+  bg-cyan-600
+  text-black
+  w-6
+  h-6
+  rounded-full 
+  flex 
+  justify-center 
+  items-center
+}
+
+.theme-button{
+  @apply
+  w-11 
+  h-6 
+  bg-gray-200 
+  rounded-full 
+  dark:bg-gray-700
+}
+
+.theme-button-moon{
+  @apply
+  absolute 
+  left-0 
+  top-0 
+  w-6 
+  h-6 
+  flex 
+  items-center 
+  justify-center 
+  rounded-full 
+  transition-transform 
+  duration-300 
+  transform 
+  peer-checked:translate-x-full
+}
+
+.theme-button-sun{
+  @apply
+  absolute 
+  right-0 
+  top-0 
+  w-6 
+  h-6 
+  flex 
+  items-center 
+  justify-center 
+  rounded-full 
+  transition-transform 
+  duration-300 
+  transform 
+  peer-checked:-translate-x-full
+}
+
+.footer{
+  @apply
+  flex 
+  flex-col 
+  md:flex-row 
+  justify-between 
+  pt-16 
+  pb-8 
+  relative 
+  z-10
+}
+
+.footer-about-us{
+  @apply
+  w-full 
+  md:w-1/3 
+  mb-6 
+  md:mb-0
+}
+
+.footer-about-us-title{
+  @apply
+  text-base 
+  font-bold 
+  mb-2
+}
+
+.footer-about-us-text{
+  @apply
+  w-full 
+  mb-2 
+  md:mb-0
+}
+
+.footer-creators{
+  @apply
+  text-base 
+  font-bold 
+}
+
+.home-banner{
+  @apply
+  relative 
+  py-20 
+  px-6 
+  md:px-20
+}
+
+.home-banner-segragate{
+  @apply
+  mx-auto 
+  flex 
+  flex-col 
+  md:flex-row 
+  items-center 
+  justify-between
+}
+
+.home-banner-left{
+  @apply
+  md:w-1/2 
+  z-10 
+  relative
+}
+
+.home-banner-title{
+  @apply
+  text-cyan-600 
+  text-6xl 
+  font-extrabold 
+  mb-6 
+  font-primary 
+  leading-tight
+}
+
+.home-banner-subtitle{
+  @apply
+  block 
+  text-4xl 
+  font-light
+}
+
+.home-banner-text{
+  @apply
+  text-lg 
+  mb-8 
+  leading-relaxed
+}
+
+.home-banner-right{
+  @apply
+  md:w-1/2 
+  relative 
+  mt-10 
+  md:mt-0 
+  flex 
+  justify-center
+}
+
+.home-banner-simple-circle{
+  @apply
+  w-80 
+  h-80 
+  bg-gradient-to-br 
+  from-cyan-600 
+  to-blue-600 
+  opacity-90 
+  rounded-full 
+  transform 
+  rotate-45 
+  absolute 
+  top-10 
+  left-10 
+  blur-xl
+}
+
+.home-banner-gradient-circle{
+  @apply
+  w-72 
+  h-72 
+  bg-gradient-to-br 
+  from-blue-600 
+  to-sky-200 
+  opacity-90 
+  rounded-full 
+  transform 
+  rotate-45 
+  absolute 
+  top-20 
+  left-20 
+  blur-xl
+}
+
+.home-page-bg-circle{
+  @apply
+  w-80 
+  h-80 
+  object-cover 
+  rounded-full 
+  shadow-2xl 
+  z-10 
+  transform 
+  hover:scale-105 
+  transition-transform 
+  duration-500
 }
 
 .container{
-  @apply max-w-[1920p]
+  @apply 
+  max-w-[1920p]
   mx-auto 
   xl:px-20 
   md:px-2

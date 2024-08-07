@@ -21,24 +21,23 @@ const Navbar = async () => {
 
 
   return (
-    <div className="top-0 w-full z-30 shadow-sm">
+    <div className="nav-bar">
       <Container>
-        <div className="text-lg flex flex-col sm:flex-row justify-between items-center py-4 relative">
+        <div className="nav-bar-inner">
           {/* Left side: Logo and Navigation Links */}
-          <div className="flex items-center gap-4">
+          <div className="nav-bar-logo">
             {/* Navigation Links */}
-            <Link href="/" className="flex items-center gap-2">
+            <Link href="/" className="flex items-center gap-2"> {/* TODO consider removing text and only leaving a picture of a logo */}
             <Image src={logo.src} alt="Home" className="h-8" width={32} height={32} />
             <span className="ml-2">Home-page</span>
             </Link>
-
           </div>
           {/*className="hidden md:block" */}
 
           {/* Right side: Account and Cart Icons */}
-          <div className="flex items-center gap-4 mt-4 sm:mt-0">
+          <div className="nav-bar-menues">
             {/*div here inorder to not go back to homepage every time */}
-            <div className="flex items-center gap-2"><UserMenu currentUser={currentUser}/></div>
+            <div className="nav-bar-user-menu"><UserMenu currentUser={currentUser}/></div>
             {/* Cart Icon with badge */}
             <div className="relative">
               <CartCount/>

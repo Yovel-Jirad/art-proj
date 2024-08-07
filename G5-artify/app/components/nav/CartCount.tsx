@@ -18,17 +18,7 @@ const CartCount = () => {
                 <CiShoppingCart className="cursor-pointer" />
             </div>
             {/* Cart count badge */}
-            <span className="absolute
-            top-[-10px] 
-            right-[-10px]
-            bg-cyan-600
-            text-black
-            w-6
-            h-6
-            rounded-full 
-            flex 
-            justify-center 
-            items-center">{cartTotalQty}</span>
+            <span className="cart-count-icon">{cartTotalQty}</span>
         </div>
     );
 };

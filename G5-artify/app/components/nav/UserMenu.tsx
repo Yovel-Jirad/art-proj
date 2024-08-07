@@ -25,79 +25,46 @@ const UserMenu: React.FC<UserMenuProps>=({currentUser}) => {
     },[]);
 
     return (
-    <>
-        <div className="relative z-30">
-            {/* User menu button */}
-            <div onClick={toggleOpen} className="
-            p-2
-            border-[1px]
-            border-slate-400
-            flex
-            flex-row
-            items-center
-            gap-1
-            rounded-full
-            cursor-pointer
-            hover:shadow-md
-            hover:shadow-white
-            transition
-            ">
-                <Avatar/>
-                <AiFillCaretDown />
+    <div className="relative z-30">
+        {/* User menu button */}
+        <div onClick={toggleOpen} className="user-menu">
+            <Avatar/>
+            <AiFillCaretDown />
 
-            </div>
-            {/* Menu items */}
-            {isOpen && (
-                <div className="absolute
-                rounded-md
-                shadow-md
-                w-[170px]
-                bg-white
-                overflow-hidden
-                right-0
-                top-12
-                text-sm
-                flex
-                flex-col
-                cursor-pointer
-                ">
-                    {currentUser ? (
-                        <div>
-                            {/* Link to user orders */}
-                            <Link href="/orders">
-                                <MenuItem onClick={toggleOpen}>Your Orders</MenuItem>
-                            </Link>
-                            {/* Admin-specific links */}
-                            {currentUser.role === 'ADMIN' && (
-                                <>
-                                    <Link href="/admin">
-                                        <MenuItem onClick={toggleOpen}>Admin Dashboard</MenuItem>
-                                    </Link>
-                                </>
-                            )}
-                            <hr />
-                            {/* Logout option */}
-                            <MenuItem onClick={()=>{
-                                toggleOpen();
-                                signOut({ callbackUrl: '/' });
-                            }}> Logout</MenuItem>
-                        </div>) : <div>
-                        {/* Link to login */}
-                        <Link href="/login">
-                            <MenuItem onClick={toggleOpen}>Login</MenuItem>
-                        </Link>
-                        {/* Link to register */}
-                        <Link href="/register">
-                            <MenuItem onClick={toggleOpen}>Register</MenuItem>
-                        </Link>
-                    </div>
-                    }
-
-
-                </div>
-            )}
         </div>
-    </>
+        {/* Menu items */}
+        {isOpen && (
+            <div className="opened-user-menu">
+                {currentUser ? (
+                    <div>
+                        {/* Link to user orders */}
+                        <Link href="/orders">
+                            <MenuItem onClick={toggleOpen}>Your Orders</MenuItem>
+                        </Link>
+                        {/* Admin-specific links */}
+                        <Link href="/admin">
+                            <MenuItem onClick={toggleOpen}>Admin Dashboard</MenuItem>
+                        </Link>
+                        <hr />
+                        {/* Logout option */}
+                        <MenuItem onClick={()=>{
+                            toggleOpen();
+                            signOut({ callbackUrl: '/' });
+                        }}> Logout</MenuItem>
+                    </div>) : <div>
+                    {/* Link to login */}
+                    <Link href="/login">
+                        <MenuItem onClick={toggleOpen}>Login</MenuItem>
+                    </Link>
+                    {/* Link to register */}
+                    <Link href="/register">
+                        <MenuItem onClick={toggleOpen}>Register</MenuItem>
+                    </Link>
+                </div>
+                }
+            </div>
+        )}
+    </div>
   );
 };
 
