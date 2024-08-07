@@ -23,60 +23,13 @@ const OrderDetails: React.FC<OrderDetailsProps> = ({order}) => {
         <div className="max-w-[1150px] m-auto flex flex-col gap-2">
             {/* Heading for order details */}
             <div className="mt-8"> 
-                <Heading title="Order Details"/>
+                <Heading title="Purchase Details"/>
             </div>
-            {/* Order ID */}
-            <div> Order ID: {order.id}</div>
-            {/* Total Amount */}
-            <div> Total Amount: {" "}
-                <span className="font-bold">{formatPrices(order.amount)}</span>
-            </div>
-            <div className=" flex gap-2 items-center">
-                {/* Payment Status */}
-                <div>Payments Status:</div>
-                <div>
-                    {/* Displaying payment status based on order status */}
-                    {order.status == 'pending'? (<Status 
-                    text='pending'
-                    icon={MdAccessTimeFilled}
-                    bg="bg-slate-200"
-                    color="text-slate-700" ///
-                    />
-                    ): order.status == 'complete' ? (<Status 
-                    text='completed'
-                    icon={MdDone}
-                    bg="bg-green-200"
-                    color="text-slate-700" ///
-                    />
-                    ): <></>}
-                </div>
-            </div>
-            {/* Delivery Status */}
-            <div className=" flex gap-2 items-center">
-                <div>Delivery Status:</div>
-                <div>
-                    {/* Displaying delivery status based on order deliveryStatus */}
-                    {order.deliveryStatus == 'pending'? (<Status 
-                    text='pending'
-                    icon={MdAccessTimeFilled}
-                    bg="bg-slate-200"
-                    color="text-slate-700" ///
-                    />
-                    ): order.deliveryStatus == 'dispatched' ? (<Status 
-                    text='dispatched'
-                    icon={MdDeliveryDining}
-                    bg="bg-purple-200"
-                    color="text-slate-700" ///
-                    />
-                    ) : order.deliveryStatus == 'delivered' ? (<Status 
-                        text='delivered'
-                        icon={MdDone}
-                        bg="bg-green-200"
-                        color="text-slate-700" ///
-                        />
-                        ) : (
-                        <></>)}
-                </div>
+            {/* Purchase ID */}
+            <div> Purchase ID: {order.id}</div>
+            {/* Total Price */}
+            <div> Total Price: {" "}
+                <span className="font-bold">{formatPrices(order.amount/100)}</span>
             </div>
             {/* Date */}
             <div> Date: {moment (order.createDate).fromNow()}</div>

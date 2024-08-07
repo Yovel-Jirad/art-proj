@@ -118,8 +118,7 @@ const ManageProductsClient: React.FC<ManageProductsClientProps> = ({ products })
     await handleImageDelete(); // Delete images associated with the product
 
     // Delete the product from the database
-    axios
-      .delete(`/api/product/${id}`)
+    axios.delete(`/api/product/${id}`)
       .then((res) => {
         toast.success("Product deleted");
         router.refresh();

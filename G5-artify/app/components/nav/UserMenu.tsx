@@ -38,8 +38,8 @@ const UserMenu: React.FC<UserMenuProps>=({currentUser}) => {
                 {currentUser ? (
                     <div>
                         {/* Link to user orders */}
-                        <Link href="/orders">
-                            <MenuItem onClick={toggleOpen}>Your Orders</MenuItem>
+                        <Link href="/purchases">
+                            <MenuItem onClick={toggleOpen}>Your Purchases</MenuItem>
                         </Link>
                         {/* Manage Products links */}
                         <Link href="/manage-products">
